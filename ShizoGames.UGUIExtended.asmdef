@@ -1,0 +1,18 @@
+{
+    "name": "ShizoGames.UGUIExtended",
+    "rootNamespace": "",
+    "references": [
+        "Unity.InputSystem",
+        "Unity.TextMeshPro",
+        "ShizoGames.ShizoUtility"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
