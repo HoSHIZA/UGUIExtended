@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 
-namespace ShizoGames.ImprovedUI.Editor.Components
+namespace ShizoGames.UGUIExtended.Editor.Components
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(NonDrawingGraphic), false)]
