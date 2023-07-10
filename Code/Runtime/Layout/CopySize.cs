@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -11,9 +12,11 @@ namespace ShizoGames.UGUIExtended.Layout
         [SerializeField] private CopySizeMode _copyMode;
         [SerializeField] private CopySizeTarget _copyTarget;
         [SerializeField] private RectTransform _target;
+        
         [Space]
         [SerializeField] private bool _width;
         [SerializeField] private bool _height;
+        
         [Space]
         [SerializeField] private float _widthIncrement;
         [SerializeField] private float _heightIncrement;
@@ -26,10 +29,52 @@ namespace ShizoGames.UGUIExtended.Layout
         {
             if (!Application.isPlaying) return;
             
-            Setup();
+            Refresh();
         }
 
         private void Update()
+        {
+            if (_copyMode == CopySizeMode.CopyForTarget) return;
+            
+            Refresh();
+        }
+
+        protected override void OnTransformParentChanged()
+        {
+            if (_copyTarget != CopySizeTarget.Parent) return;
+            
+            if (_copyMode == CopySizeMode.CopyFromTarget)
+            {
+                Setup(true);
+            }
+            else
+            {
+                Refresh();
+            }
+        }
+
+        protected override void OnRectTransformDimensionsChange()
+        {
+            if (_copyMode == CopySizeMode.CopyFromTarget) return;
+            
+            Refresh();
+        }
+
+        private void OnTransformChildrenChanged()
+        {
+            if (_copyTarget != CopySizeTarget.Children) return;
+            
+            if (_copyMode == CopySizeMode.CopyFromTarget)
+            {
+                Setup(true);
+            }
+            else
+            {
+                Refresh();
+            }
+        }
+
+        private void Refresh()
         {
 #if UNITY_EDITOR
             if (_copyTarget == CopySizeTarget.Parent || _copyTarget == CopySizeTarget.Children)
@@ -48,7 +93,7 @@ namespace ShizoGames.UGUIExtended.Layout
             
             if (_width)
             {
-                if (_toLayoutElement)
+                if (_toLayoutElement && !_toLayoutElement.ignoreLayout)
                 {
                     _toLayoutElement.minWidth = fromSizeDelta.x + _widthIncrement;
                     _toLayoutElement.preferredWidth = fromSizeDelta.x + _widthIncrement;
@@ -61,7 +106,7 @@ namespace ShizoGames.UGUIExtended.Layout
 
             if (_height)
             {
-                if (_toLayoutElement)
+                if (_toLayoutElement && !_toLayoutElement.ignoreLayout)
                 {
                     _toLayoutElement.minHeight = fromSizeDelta.y + _heightIncrement;
                     _toLayoutElement.preferredHeight = fromSizeDelta.y + _heightIncrement;
@@ -73,20 +118,6 @@ namespace ShizoGames.UGUIExtended.Layout
             }
         }
 
-        protected override void OnTransformParentChanged()
-        {
-            if (_copyTarget != CopySizeTarget.Parent) return;
-            
-            Setup(true);
-        }
-        
-        private void OnTransformChildrenChanged()
-        {
-            if (_copyTarget != CopySizeTarget.Children) return;
-            
-            Setup(true);
-        }
-        
         private void Setup(bool resetTarget = false)
         {
             if (resetTarget)
