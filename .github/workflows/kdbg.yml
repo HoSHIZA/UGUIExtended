@@ -47,4 +47,4 @@ jobs:
           
       - name: Push Branch
         run: |
-          git push origin kdbg
+          git push --force origin kdbg
