@@ -40,8 +40,11 @@ jobs:
         run: |
           find . -type f -name 'ShizoGames.*.asmdef.meta' -exec rm {} +
 
-      - name: Push Branch
+      - name: Commit Branch
         run: |
           git add .
           git commit -m "KDebugger Ready"
+          
+      - name: Push Branch
+        run: |
           git push origin kdbg
