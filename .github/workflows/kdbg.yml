@@ -46,7 +46,6 @@ jobs:
         run: |
           git add .
           git commit -m "KDebugger Ready"
-          git pull --rebase origin kdbg
 
       - name: Push Branch
         run: |
