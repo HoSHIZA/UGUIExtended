@@ -31,10 +31,12 @@ jobs:
       - name: Replace Editor Asmdef
         run: |
           find . -type f -name 'ShizoGames.*.Editor.asmdef' -execdir bash -c 'echo -e "{\r\n    \"reference\": \"KDebugger.Plugins.Editor\"\r\n}" > "{}" && mv "{}" "KDebugger.Plugins.Editor.Reference.asmref"' \;
+          find . -type f -name 'ShizoGames.*.Editor.asmdef.meta' -execdir bash -c 'sed -i "s/^guid: .*$/guid: $(uuidgen)/g" > "{}" && mv "{}" "KDebugger.Plugins.Editor.Reference.asmref.meta"' \;
 
       - name: Replace Runtime Asmdef
         run: |
           find . -type f -name 'ShizoGames.*.asmdef' -not \( -name '*.Editor.asmdef' \) -execdir bash -c 'echo -e "{\r\n    \"reference\": \"KDebugger.Plugins\"\r\n}" > "{}" && mv "{}" "KDebugger.Plugins.Reference.asmref"' \;
+          find . -type f -name 'ShizoGames.*.asmdef.meta' -not \( -name '*.Editor.asmdef.meta' \) -execdir bash -c 'sed -i "s/^guid: .*$/guid: $(uuidgen)/g" > "{}" && mv "{}" "KDebugger.Plugins.Reference.asmref.meta"' \;
 
       - name: Remove .asmdef.meta Files
         run: |
@@ -44,7 +46,8 @@ jobs:
         run: |
           git add .
           git commit -m "KDebugger Ready"
-          
+          git pull --rebase origin kdbg
+
       - name: Push Branch
         run: |
           git push --force origin kdbg
