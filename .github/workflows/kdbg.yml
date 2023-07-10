@@ -1,5 +1,10 @@
 name: KDebugger Ready
 
+on:
+  fetch:
+    branches:
+      - kdbg
+
 jobs:
   update_branch:
     runs-on: ubuntu-latest
