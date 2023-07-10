@@ -1,9 +1,9 @@
 name: KDebugger Ready
 
 on:
-  fetch:
+  push:
     branches:
-      - kdbg
+      - master
 
 jobs:
   update_branch:
