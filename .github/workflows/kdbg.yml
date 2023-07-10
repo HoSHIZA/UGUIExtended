@@ -18,10 +18,11 @@ jobs:
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git checkout kdbg || git checkout -b kdbg
-          
-      - name: Pull From Master
+
+      - name: Rebase from master
         run: |
-          git pull origin master
+          git fetch origin master
+          git rebase origin/master
 
       - name: Update Namespaces
         run: |
