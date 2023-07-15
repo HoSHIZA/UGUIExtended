@@ -1,10 +1,10 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace ShizoGames.UGUIExtended.Components.Drag.Value
+namespace ShizoGames.UGUIExtended
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Drag/Value/Value Drag Field")]
+    [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Drag/Value Drag Field")]
     public sealed class ValueDragField : MonoBehaviour
     {
         [SerializeField] private ValueDragHandler _valueDragHandler;

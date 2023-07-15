@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace ShizoGames.UGUIExtended.Components.Drag
+namespace ShizoGames.UGUIExtended
 {
     [DisallowMultipleComponent]
     public sealed class DraggableRectHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler

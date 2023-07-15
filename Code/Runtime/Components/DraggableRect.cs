@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace ShizoGames.UGUIExtended.Components.Drag
+namespace ShizoGames.UGUIExtended
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(RectTransform))]
-    [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Draggable Rect")]
+    [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Drag/Draggable Rect")]
     public sealed class DraggableRect : UIBehaviour
     {
         [SerializeField] private bool _interactable = true;

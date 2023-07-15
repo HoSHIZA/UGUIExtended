@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Components.Drag.Value
+namespace ShizoGames.UGUIExtended
 {
     [DisallowMultipleComponent]
-    [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Drag/Value/Value Drag Handler")]
+    [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Drag/Value Drag Handler")]
     public sealed class ValueDragHandler : MonoBehaviour
     {
         [SerializeField] private Selectable _slider;
