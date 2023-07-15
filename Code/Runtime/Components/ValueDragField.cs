@@ -10,8 +10,8 @@ namespace ShizoGames.UGUIExtended.Components
         [SerializeField] private ValueDragHandler _valueDragHandler;
         [SerializeField] private TMP_InputField _inputField;
         
-        internal ValueDragHandler ValueDragHandler => _valueDragHandler;
-        internal TMP_InputField InputField => _inputField;
+        public ValueDragHandler ValueDragHandler => _valueDragHandler;
+        public TMP_InputField InputField => _inputField;
         
         public string Value
         {
