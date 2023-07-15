@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace ShizoGames.UGUIExtended
+namespace ShizoGames.UGUIExtended.Components
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(RectTransform))]

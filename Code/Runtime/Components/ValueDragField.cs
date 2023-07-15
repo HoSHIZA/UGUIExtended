@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace ShizoGames.UGUIExtended
+namespace ShizoGames.UGUIExtended.Components
 {
     [DisallowMultipleComponent]
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Drag/Value Drag Field")]
