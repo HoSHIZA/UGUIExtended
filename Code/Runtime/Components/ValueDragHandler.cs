@@ -13,6 +13,7 @@ namespace ShizoGames.UGUIExtended.Components
 
         public event Action OnDragBegin;
         public event Action OnDragEnd;
+        public event Action OnDragCanceled;
         public event Action<float> OnDragValueChanged;
 
         private bool _dragBegin;
@@ -44,20 +45,25 @@ namespace ShizoGames.UGUIExtended.Components
             eventTrigger.triggers.Add(pointerDrag);
             eventTrigger.triggers.Add(pointerUp);
         }
-
+        
         private void Update()
         {
             if (!_dragBegin || !_dragging) return;
             
 #if ENABLE_INPUT_SYSTEM
             var escapeIsPressed = UnityEngine.InputSystem.Keyboard.current.escapeKey.isPressed;
+#elif ENABLE_LEGACY_INPUT_MANAGER
+            var escapePressed = Input.GetKeyDown(KeyCode.Escape);
 #else
-            var escapeIsPressed = Input.GetKeyDown(KeyCode.Escape);
+            var escapePressed = false;
 #endif
-
-            if (escapeIsPressed)
+            
+            if (escapePressed)
             {
-                
+                OnDragCanceled?.Invoke();
+
+                _dragBegin = false;
+                _dragging = false;
             }
         }
 
