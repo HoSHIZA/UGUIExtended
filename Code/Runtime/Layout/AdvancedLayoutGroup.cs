@@ -61,6 +61,7 @@ namespace ShizoGames.UGUIExtended.Editor.Layout
         private SerializedProperty m_Padding;
         private SerializedProperty m_Spacing;
         private SerializedProperty m_ChildAlignment;
+        private SerializedProperty m_ReverseArrangement;
         private SerializedProperty m_ChildControlWidth;
         private SerializedProperty m_ChildControlHeight;
         private SerializedProperty m_ChildScaleWidth;
@@ -74,6 +75,7 @@ namespace ShizoGames.UGUIExtended.Editor.Layout
             m_Padding = serializedObject.FindProperty("m_Padding");
             m_Spacing = serializedObject.FindProperty("m_Spacing");
             m_ChildAlignment = serializedObject.FindProperty("m_ChildAlignment");
+            m_ReverseArrangement = serializedObject.FindProperty("m_ReverseArrangement");
             m_ChildControlWidth = serializedObject.FindProperty("m_ChildControlWidth");
             m_ChildControlHeight = serializedObject.FindProperty("m_ChildControlHeight");
             m_ChildScaleWidth = serializedObject.FindProperty("m_ChildScaleWidth");
@@ -91,6 +93,7 @@ namespace ShizoGames.UGUIExtended.Editor.Layout
             EditorGUILayout.PropertyField(m_Padding, true);
             EditorGUILayout.PropertyField(m_Spacing, true);
             EditorGUILayout.PropertyField(m_ChildAlignment, true);
+            EditorGUILayout.PropertyField(m_ReverseArrangement, true);
 
             var rect = EditorGUILayout.GetControlRect();
             rect = EditorGUI.PrefixLabel(rect, -1, EditorGUIUtility.TrTextContent("Control Child Size"));
