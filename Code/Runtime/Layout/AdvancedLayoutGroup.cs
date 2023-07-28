@@ -38,7 +38,7 @@ namespace ShizoGames.UGUIExtended.Layout
         
         public void ChangeLayoutType(LayoutGroupType type)
         {
-            _layoutType = LayoutGroupType.Horizontal;
+            _layoutType = type;
             
             LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
         }
