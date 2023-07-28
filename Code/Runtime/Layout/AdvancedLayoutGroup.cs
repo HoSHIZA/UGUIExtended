@@ -36,8 +36,15 @@ namespace ShizoGames.UGUIExtended.Layout
             SetChildrenAlongAxis(1, IsVertical);
         }
         
+        public void ChangeLayoutType(LayoutGroupType type)
+        {
+            _layoutType = LayoutGroupType.Horizontal;
+            
+            LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
+        }
+        
         [Serializable]
-        private enum LayoutGroupType
+        public enum LayoutGroupType
         {
             Vertical,
             Horizontal,
