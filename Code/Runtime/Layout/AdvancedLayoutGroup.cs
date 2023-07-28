@@ -38,6 +38,8 @@ namespace ShizoGames.UGUIExtended.Layout
         
         public void ChangeLayoutType(LayoutGroupType type)
         {
+            if (_layoutType == type) return;
+            
             _layoutType = type;
             
             LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
