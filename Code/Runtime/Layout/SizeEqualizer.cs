@@ -61,7 +61,7 @@ namespace ShizoGames.UGUIExtended.Layout
             }
         }
 
-        protected override void Reset()
+        protected new void Reset()
         {
             _layoutElement = null;
         }
