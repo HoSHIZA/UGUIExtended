@@ -165,7 +165,7 @@ namespace ShizoGames.UGUIExtended.Layout
             _toLayoutElement = _to.GetComponent<LayoutElement>();
         }
 
-        protected new void Reset()
+        private void Reset()
         {
             _toLayoutElement = null;
             _from = null;
