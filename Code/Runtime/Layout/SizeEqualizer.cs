@@ -60,11 +60,13 @@ namespace ShizoGames.UGUIExtended.Layout
                 }
             }
         }
-
+        
+        #pragma warning disable CS0114
         private void Reset()
         {
             _layoutElement = null;
         }
+        #pragma warning restore CS0114
 
 #if UNITY_EDITOR
         protected override void OnValidate()

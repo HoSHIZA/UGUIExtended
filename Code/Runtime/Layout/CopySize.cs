@@ -165,12 +165,14 @@ namespace ShizoGames.UGUIExtended.Layout
             _toLayoutElement = _to.GetComponent<LayoutElement>();
         }
 
+        #pragma warning disable CS0114
         private void Reset()
         {
             _toLayoutElement = null;
             _from = null;
             _to = null;
         }
+        #pragma warning restore CS0114
         
         public enum CopySizeMode
         {
