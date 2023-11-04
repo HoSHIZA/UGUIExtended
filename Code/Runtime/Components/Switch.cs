@@ -58,7 +58,7 @@ namespace ShizoGames.UGUIExtended.Components
         {
             var sliderValue = isOn ? 1f : 0f;
             
-            if (_enableAnimations && !skipAnimation)
+            if (gameObject.activeInHierarchy && _enableAnimations && !skipAnimation)
             {
                 InterpolationUtility.Interpolate(this, value => Slider.value = value, 
                     Slider.value, sliderValue, _animationDuration, _curve);
@@ -72,7 +72,7 @@ namespace ShizoGames.UGUIExtended.Components
             {
                 var color = isOn ? _onBackgroundColor : _offBackgroundColor;
                 
-                if (_enableAnimations && !skipAnimation)
+                if (gameObject.activeInHierarchy && _enableAnimations && !skipAnimation)
                 {
                     InterpolationUtility.Interpolate(this, value => _background.color = value, 
                         _background.color, color, _animationDuration);
@@ -87,7 +87,7 @@ namespace ShizoGames.UGUIExtended.Components
             {
                 var color = isOn ? _onKnobColor : _offKnobColor;
                 
-                if (_enableAnimations && !skipAnimation)
+                if (gameObject.activeInHierarchy && _enableAnimations && !skipAnimation)
                 {
                     InterpolationUtility.Interpolate(this, value => _knob.color = value, 
                         _knob.color, color, _animationDuration);
