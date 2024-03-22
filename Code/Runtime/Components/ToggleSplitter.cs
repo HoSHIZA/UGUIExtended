@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Components
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Components
 {
     [RequireComponent(typeof(Toggle))]
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Toggle Splitter")]

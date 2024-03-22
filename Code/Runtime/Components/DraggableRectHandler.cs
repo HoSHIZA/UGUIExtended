@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace ShizoGames.UGUIExtended.Components
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Components
 {
     [DisallowMultipleComponent]
     public sealed class DraggableRectHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler

@@ -1,10 +1,10 @@
 ﻿using System;
-using ShizoGames.UGUIExtended.Utility;
+using KDebugger.Plugins.ShizoGames.UGUIExtended.Utility;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Components
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Components
 {
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Switch")]
     public sealed class Switch : MonoBehaviour

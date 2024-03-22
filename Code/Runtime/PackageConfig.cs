@@ -1,4 +1,4 @@
-﻿namespace ShizoGames.UGUIExtended
+﻿namespace KDebugger.Plugins.ShizoGames.UGUIExtended
 {
     internal static class PackageConfig
     {

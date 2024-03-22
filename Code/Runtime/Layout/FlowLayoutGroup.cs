@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Layout
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Layout
 {
     [DisallowMultipleComponent]
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Layout/Flow Layout Group")]

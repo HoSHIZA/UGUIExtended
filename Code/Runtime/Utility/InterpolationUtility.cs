@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ShizoGames.UGUIExtended.Utility
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Utility
 {
     internal static class InterpolationUtility
     {

@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Layout
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Layout
 {
     [ExecuteInEditMode]
     [DisallowMultipleComponent]
