@@ -9,40 +9,36 @@ namespace ShizoGames.UGUIExtended.Layout
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Layout/Flow Layout Group")]
     public class FlowLayoutGroup : LayoutGroup
     {
-        public bool ChildForceExpandHeight = false;
-        public bool ChildForceExpandWidth = false;
-        public float Spacing = 0f;
-        
+        public bool ChildForceExpandHeight;
+        public bool ChildForceExpandWidth;
+        public float Spacing;
+
+        private readonly List<RectTransform> _rows = new List<RectTransform>();
+
         private float _layoutHeight;
-        
-        private readonly IList<RectTransform> _rowList = new List<RectTransform>();
 
-        protected bool IsCenterAlign =>
-            childAlignment == TextAnchor.LowerCenter || 
-            childAlignment == TextAnchor.MiddleCenter || 
-            childAlignment == TextAnchor.UpperCenter;
+        protected bool IsCenterAlign => childAlignment == TextAnchor.LowerCenter ||
+                                        childAlignment == TextAnchor.MiddleCenter ||
+                                        childAlignment == TextAnchor.UpperCenter;
 
-        protected bool IsRightAlign =>
-            childAlignment == TextAnchor.LowerRight || 
-            childAlignment == TextAnchor.MiddleRight ||
-            childAlignment == TextAnchor.UpperRight;
+        protected bool IsRightAlign => childAlignment == TextAnchor.LowerRight ||
+                                       childAlignment == TextAnchor.MiddleRight ||
+                                       childAlignment == TextAnchor.UpperRight;
 
-        protected bool IsMiddleAlign =>
-            childAlignment == TextAnchor.MiddleLeft ||
-            childAlignment == TextAnchor.MiddleRight ||
-            childAlignment == TextAnchor.MiddleCenter;
+        protected bool IsMiddleAlign => childAlignment == TextAnchor.MiddleLeft ||
+                                        childAlignment == TextAnchor.MiddleRight ||
+                                        childAlignment == TextAnchor.MiddleCenter;
 
-        protected bool IsLowerAlign =>
-            childAlignment == TextAnchor.LowerLeft ||
-            childAlignment == TextAnchor.LowerRight ||
-            childAlignment == TextAnchor.LowerCenter;
+        protected bool IsLowerAlign => childAlignment == TextAnchor.LowerLeft ||
+                                       childAlignment == TextAnchor.LowerRight ||
+                                       childAlignment == TextAnchor.LowerCenter;
 
         public override void CalculateLayoutInputHorizontal()
         {
             base.CalculateLayoutInputHorizontal();
 
             var min = GetGreatestMinimumChildWidth() + padding.left + padding.right;
-            
+
             SetLayoutInputForAxis(min, -1, -1, 0);
         }
 
@@ -60,12 +56,12 @@ namespace ShizoGames.UGUIExtended.Layout
         {
             _layoutHeight = SetLayout(1, true);
         }
-        
+
         public float SetLayout(int axis, bool layoutInput)
         {
             var groupHeight = rectTransform.rect.height;
             var workingWidth = rectTransform.rect.width - padding.left - padding.right;
-            var yOffset = IsLowerAlign ? padding.bottom : (float) padding.top;
+            var yOffset = IsLowerAlign ? padding.bottom : (float)padding.top;
 
             var currentRowWidth = 0f;
             var currentRowHeight = 0f;
@@ -79,7 +75,7 @@ namespace ShizoGames.UGUIExtended.Layout
 
                 childWidth = Mathf.Min(childWidth, workingWidth);
 
-                if (_rowList.Count > 0)
+                if (_rows.Count > 0)
                 {
                     currentRowWidth += Spacing;
                 }
@@ -90,11 +86,12 @@ namespace ShizoGames.UGUIExtended.Layout
 
                     if (!layoutInput)
                     {
-                        var h = CalculateRowVerticalOffset(groupHeight, yOffset, currentRowHeight);
-                        LayoutRow(currentRowWidth, currentRowHeight, workingWidth, padding.left, h, axis);
+                        var off = CalculateRowVerticalOffset(groupHeight, yOffset, currentRowHeight);
+                        
+                        LayoutRow(currentRowWidth, currentRowHeight, workingWidth, padding.left, off, axis);
                     }
 
-                    _rowList.Clear();
+                    _rows.Clear();
 
                     yOffset += currentRowHeight;
                     yOffset += Spacing;
@@ -104,7 +101,8 @@ namespace ShizoGames.UGUIExtended.Layout
                 }
 
                 currentRowWidth += childWidth;
-                _rowList.Add(child);
+                
+                _rows.Add(child);
 
                 if (childHeight > currentRowHeight)
                 {
@@ -114,16 +112,16 @@ namespace ShizoGames.UGUIExtended.Layout
 
             if (!layoutInput)
             {
-                var h = CalculateRowVerticalOffset(groupHeight, yOffset, currentRowHeight);
-                
-                LayoutRow(currentRowWidth, currentRowHeight, workingWidth, padding.left, h, axis);
+                var rOffset = CalculateRowVerticalOffset(groupHeight, yOffset, currentRowHeight);
+
+                LayoutRow(currentRowWidth, currentRowHeight, workingWidth, padding.left, rOffset, axis);
             }
-            
-            _rowList.Clear();
-            
+
+            _rows.Clear();
+
             yOffset += currentRowHeight;
             yOffset += IsLowerAlign ? padding.top : padding.bottom;
-            
+
             if (layoutInput)
             {
                 if (axis == 1)
@@ -172,7 +170,7 @@ namespace ShizoGames.UGUIExtended.Layout
 
             if (ChildForceExpandWidth)
             {
-                var flexibleChildCount = _rowList.Count(row => LayoutUtility.GetFlexibleWidth(row) > 0f);
+                var flexibleChildCount = _rows.Count(row => LayoutUtility.GetFlexibleWidth(row) > 0f);
 
                 if (flexibleChildCount > 0)
                 {
@@ -180,11 +178,11 @@ namespace ShizoGames.UGUIExtended.Layout
                 }
             }
 
-            for (var j = 0; j < _rowList.Count; j++)
+            for (var j = 0; j < _rows.Count; j++)
             {
-                var index = IsLowerAlign ? _rowList.Count - 1 - j : j;
+                var index = IsLowerAlign ? _rows.Count - 1 - j : j;
 
-                var rowChild = _rowList[index];
+                var rowChild = _rows[index];
 
                 var rowChildWidth = LayoutUtility.GetPreferredSize(rowChild, 0);
 
