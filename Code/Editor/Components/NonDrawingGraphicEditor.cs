@@ -1,9 +1,9 @@
-﻿using ShizoGames.UGUIExtended.Components;
+﻿using KDebugger.Plugins.ShizoGames.UGUIExtended.Components;
 using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 
-namespace ShizoGames.UGUIExtended.Editor.Components
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Editor.Components
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(NonDrawingGraphic), false)]

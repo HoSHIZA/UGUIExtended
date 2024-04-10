@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ShizoGames.UGUIExtended.Components
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Components
 {
     /// <summary>
     /// A component that provides functionality to snap a RectTransform's anchor to a predefined grid.

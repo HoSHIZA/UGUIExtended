@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Components
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Components
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CanvasRenderer))]

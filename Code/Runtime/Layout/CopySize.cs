@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Layout
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Layout
 {
     [ExecuteAlways]
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Layout/Copy Size")]

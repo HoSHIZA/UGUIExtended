@@ -1,8 +1,8 @@
 ﻿using System;
-using ShizoGames.ShizoUtility;
+using KDebugger.Plugins.ShizoGames.ShizoUtility;
 using UnityEngine;
 
-namespace ShizoGames.UGUIExtended.Responsive.Base
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Responsive.Base
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(RectTransform))]

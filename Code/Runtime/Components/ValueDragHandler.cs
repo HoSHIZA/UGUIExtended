@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Components
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Components
 {
     [DisallowMultipleComponent]
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Drag/Value Drag Handler")]

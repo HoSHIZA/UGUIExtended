@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Layout
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Layout
 {
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Layout/Advanced Layout Group")]
     public class AdvancedLayoutGroup : HorizontalOrVerticalLayoutGroup
@@ -56,11 +56,11 @@ namespace ShizoGames.UGUIExtended.Layout
 
 #if UNITY_EDITOR
 // ReSharper disable once CheckNamespace
-namespace ShizoGames.UGUIExtended.Editor.Layout
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Editor.Layout
 {
     using UnityEngine;
     using UnityEditor;
-    using ShizoGames.UGUIExtended.Layout;
+    using KDebugger.Plugins.ShizoGames.UGUIExtended.Layout;
 
     [CustomEditor(typeof(AdvancedLayoutGroup), true)]
     [CanEditMultipleObjects]

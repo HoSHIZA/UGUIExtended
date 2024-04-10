@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using ShizoGames.ShizoUtility;
-using ShizoGames.UGUIExtended.Responsive.Base;
+using KDebugger.Plugins.ShizoGames.ShizoUtility;
+using KDebugger.Plugins.ShizoGames.UGUIExtended.Responsive.Base;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ShizoGames.UGUIExtended.Responsive
+namespace KDebugger.Plugins.ShizoGames.UGUIExtended.Responsive
 {
     [AddComponentMenu(PackageConfig.ADD_COMPONENT_UI_ROOT + "Responsive/Responsive Swap Container")]
     public class ResponsiveSwapContainer : KResponsive
