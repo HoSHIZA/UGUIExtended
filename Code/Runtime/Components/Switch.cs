@@ -53,6 +53,29 @@ namespace ShizoGames.UGUIExtended.Components
         {
             _button.onClick.AddListener(() => SetValue(!_isOn));
         }
+        
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+            
+            var backgroundColor = _isOn ? _onBackgroundColor : _offBackgroundColor;
+            if (_background.color != backgroundColor)
+            {
+                _background.color = backgroundColor;
+            }
+
+            var sliderValue = _isOn ? 1f : 0f;
+            if (Math.Abs(Slider.value - sliderValue) > 0.001f)
+            {
+                Slider.value = sliderValue;
+            }
+            
+            var knobColor = _isOn ? _onKnobColor : _offKnobColor;
+            if (_knob.color != knobColor)
+            {
+                _knob.color = knobColor;
+            }
+        }
 
         public void SetValue(bool isOn, bool silent = false, bool skipAnimation = false)
         {
